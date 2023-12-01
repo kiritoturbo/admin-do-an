@@ -526,7 +526,7 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
 // };
 
 export const fetchHotels = () => async (dispatch) => {
-  const res = await axiosJWT.get("/api/hotels", {
+  const res = await axiosJWT.get("/hotels", {
     headers: {
       authorization: "Bearer " + store.getState().auth.accessToken,
     },
@@ -538,7 +538,7 @@ export const fetchHotels = () => async (dispatch) => {
 };
 
 export const createHotel = (formValues) => async (dispatch) => {
-  const res = await axiosJWT.post("/api/hotels", formValues, {
+  const res = await axiosJWT.post("/hotels", formValues, {
     headers: {
       authorization: "Bearer " + store.getState().auth.accessToken,
     },
@@ -559,7 +559,7 @@ export const createHotel = (formValues) => async (dispatch) => {
 
 export const editHotel = (hotelId, formValues) => async (dispatch) => {
   try {
-    const res = await axiosJWT.put(`/api/hotels/${hotelId}`, formValues, {
+    const res = await axiosJWT.put(`/hotels/${hotelId}`, formValues, {
       headers: {
         authorization: "Bearer " + store.getState().auth.accessToken,
       },
@@ -583,7 +583,7 @@ export const editHotel = (hotelId, formValues) => async (dispatch) => {
 
 export const deleteHotel = (hotelId) => async (dispatch) => {
   try {
-    const res = await axiosJWT.delete(`/api/hotels/${hotelId}`, {
+    const res = await axiosJWT.delete(`/hotels/${hotelId}`, {
       headers: {
         authorization: "Bearer " + store.getState().auth.accessToken,
       },
@@ -605,7 +605,7 @@ export const deleteHotel = (hotelId) => async (dispatch) => {
 };
 
 export const fetchRooms = () => async (dispatch) => {
-  const res = await axiosJWT.get("/api/rooms", {
+  const res = await axiosJWT.get("/rooms", {
     headers: {
       authorization: "Bearer " + store.getState().auth.accessToken,
     },
@@ -619,7 +619,7 @@ export const fetchRooms = () => async (dispatch) => {
 export const createRoom =
   ({ hotelId, ...formValues }) =>
   async (dispatch) => {
-    const res = await axiosJWT.post(`/api/rooms/${hotelId}`, formValues, {
+    const res = await axiosJWT.post(`/rooms/${hotelId}`, formValues, {
       headers: {
         authorization: "Bearer " + store.getState().auth.accessToken,
       },
@@ -663,7 +663,7 @@ export const createRoom =
 // };
 
 export const deleteRoom = (roomId, hotelId) => async (dispatch) => {
-  const res = await axiosJWT.delete(`/api/rooms/${roomId}`, {
+  const res = await axiosJWT.delete(`/rooms/${roomId}`, {
     headers: {
       authorization: "Bearer " + store.getState().auth.accessToken,
     },

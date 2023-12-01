@@ -8,6 +8,7 @@ import {
   Group,
   LocationOn,
 } from "@mui/icons-material";
+import AdUnitsIcon from "@mui/icons-material/AdUnits";
 import HotelIcon from "@mui/icons-material/Hotel";
 import BedroomChildIcon from "@mui/icons-material/BedroomChild";
 import { useState } from "react";
@@ -98,6 +99,17 @@ function SideBar(props) {
               >
                 <BedroomChildIcon className="sidebarIcon" />
                 Room
+              </li>
+            </Link>
+            <Link to="/banners">
+              <li
+                onClick={() => setSelectedItem(8)}
+                className={`sidebarListItem ${
+                  selectedItem === 8 ? "active" : ""
+                }`}
+              >
+                <AdUnitsIcon className="sidebarIcon" />
+                Banner
               </li>
             </Link>
           </ul>

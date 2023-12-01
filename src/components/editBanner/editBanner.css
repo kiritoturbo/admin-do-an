@@ -1,0 +1,11 @@
+.newAirliner {
+  flex: 4;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.mt-5 {
+  margin-top: 20px;
+}

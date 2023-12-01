@@ -1,0 +1,9 @@
+.newUser {
+  flex: 4;
+  margin: 0 20px;
+}
+
+
+.newUserForm{
+  display: block;
+}

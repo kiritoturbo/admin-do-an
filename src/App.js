@@ -31,173 +31,24 @@ import Login from "./components/pages/Login";
 import PrivateRoute from "./PrivateRoute.js";
 import HotelList from "./components/hotelList/HotelList.jsx";
 import NewHotel from "./components/newHotel/NewHotel.jsx";
-import EditHotel from "./components/editHotel/EditHotel.jsx";
 import RoomList from "./components/roomList/RoomList.jsx";
 import NewRoom from "./components/newRoom/NewRoom.jsx";
-
-// import history from "./history";
-
-// const CustomPrivateRoute = ({ element: Element, ...rest }) => {
-//   return (
-//     <Route
-//       {...rest}
-//       element={
-//         store.getState().auth.isSignedIn ? (
-//           <Element />
-//         ) : (
-//           <Navigate to="/login" />
-//         )
-//       }
-//     />
-//   );
-// };
-// const CustomPrivateRoute = ({ element: Element, ...rest }) => {
-//   const isSignedIn = store.getState().auth.isSignedIn;
-//   console.log("isSignedIn", isSignedIn);
-
-//   return (
-//     <Route
-//       {...rest}
-//       element={isSignedIn ? <Element /> : <Navigate to="/login" />}
-//     />
-//   );
-// };
-// const Private = ({ Component }) => {
-//   const isSignedIn = store.getState().auth.isSignedIn;
-//   console.log(isSignedIn);
-//   return (
-//     <>
-//       isSignedIn ? <Element /> : <Navigate to="/login" />
-//     </>
-//   );
-//   // return auth ? <Component /> : <Navigate to="/login" />;
-// };
-
-// // App.js
-// // App.js
-// function UserRoutes() {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<Home />} />
-//       <PrivateRoute path="admins" element={<UserList />} />
-//       <PrivateRoute path="flights/newFlight" element={<NewFlight />} />
-//       <PrivateRoute path="airports" element={<AirportList />} />
-//       <PrivateRoute path="airports/newAirport" element={<NewAirport />} />
-//       <PrivateRoute path="airliners/newAirliner" element={<NewAirliner />} />
-//       <PrivateRoute path="admins/newAdmin" element={<NewUser />} />
-//     </Routes>
-//   );
-// }
-
-// const Private = ({ Component }) => {
-//   const isSignedIn = store.getState().auth.isSignedIn;
-//   console.log(isSignedIn);
-//   return isSignedIn ? <Component /> : <Navigate to="/login" />;
-// };
-// const privateroute = () => {
-//   const isSignedIn = store.getState().auth.isSignedIn;
-
-//   // if authorized, return an outlet that will render child elements
-//   // if not, return element that will navigate to login page
-//   return isSignedIn ? <Outlet /> : <Navigate to="/login" />;
-// };
-
-// // UserRoutes.js
-// function UserRoutes() {
-//   return (
-//     <Outlet>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="admins" element={<PrivateRoute Component={UserList} />} />
-//         <Route
-//           path="flights/newFlight"
-//           element={<PrivateRoute Component={NewFlight} />}
-//         />
-
-//         {/* <Route path="airports" element={<Private Component={AirportList} />} /> */}
-//         <Route
-//           path="airports/newAirport"
-//           element={<PrivateRoute Component={NewAirport} />}
-//         />
-//         <Route
-//           path="airliners/newAirliner"
-//           element={<PrivateRoute Component={NewAirliner} />}
-//         />
-//         <Route
-//           path="admins/newAdmin"
-//           element={<PrivateRoute Component={NewUser} />}
-//         />
-//       </Routes>
-//     </Outlet>
-//   );
-// }
-
+import BannerList from "./components/bannerList/BannerList.jsx";
+import NewBanner from "./components/newBanner/NewBanner.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import EditHotel from "./components/editHotel/EditHotel.jsx";
+import EditBanner from "./components/editBanner/EditBanner.jsx";
 function App() {
   // const params = useParams();
   return (
     <div>
+      <ToastContainer />
       <Router history={history}>
         <Fragment>
           <TopBar />
           <div className="container">
             <SideBar />
-            {/* <Routes>
-              <Route path="/login" element={<Login />} />
-
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="flights/newFlight" element={<NewFlight />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="airports" element={<AirportList />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route
-                  exact
-                  path="airports/newAirport"
-                  element={<NewAirport />}
-                />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route
-                  exact
-                  path="airliners/newAirliner"
-                  element={<NewAirliner />}
-                />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="admins/newAdmin" element={<NewUser />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="homes" element={<Home />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="admins" element={<UserList />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="flights" element={<ListFlights />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="airliners" element={<AirlinerList />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route
-                  exact
-                  path="airports/:id"
-                  element={<EditAirport airportId={params.id} />}
-                />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="flights/:id" element={<EditFlight />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="airliners/:id" element={<EditAirliner />} />
-              </Route>
-              <Route exact path="/" element={<PrivateRoute />}>
-                <Route exact path="admins/:id" element={<User />} />
-              </Route>
-
-              <Route index element={<Navigate to="/login" />} />
-            </Routes> */}
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<PrivateRoute Component={Home} />} />
@@ -239,8 +90,16 @@ function App() {
                 element={<PrivateRoute Component={NewUser} />}
               />
               <Route
+                path="/banners/newBanner"
+                element={<PrivateRoute Component={NewBanner} />}
+              />
+              <Route
                 path="/admins"
                 element={<PrivateRoute Component={UserList} />}
+              />
+              <Route
+                path="/banners"
+                element={<PrivateRoute Component={BannerList} />}
               />
               <Route
                 path="/flights"
@@ -259,6 +118,10 @@ function App() {
               <Route
                 path="/airports/:id"
                 element={<PrivateRoute Component={EditAirport} />}
+              />
+              <Route
+                path="/banners/post/edit/:id"
+                element={<PrivateRoute Component={EditBanner} />}
               />
 
               <Route
@@ -279,10 +142,6 @@ function App() {
                 element={<PrivateRoute Component={User} />}
               />
             </Routes>
-            {/* <Route
-                path="/airports/:id"
-                element={<PrivateRoute Component={EditAirport} />}
-              /> */}
           </div>
         </Fragment>
       </Router>
